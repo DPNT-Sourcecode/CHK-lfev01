@@ -56,7 +56,6 @@ def checkout(skus):
             return -1
 
 
-
     for offer, value in specials.items():
         item = offer[-1:]
 
@@ -87,23 +86,19 @@ def checkout(skus):
     total += num_deals * 45 
     num_items = num_deals * 3
 
-    print(total)
     for char in list("ZYSTX"):  # in order of most expensive to cheapest to favour customer
-        if tally[char] >= num_items :
+        if tally[char] > num_items :
             tally[char] -= num_items
-            print("here")
+            num_items = 0
         else:
             num_items -= tally[char]
             tally[char] = 0
-            print("in here")
-        print(total)
 
 
     
     for item, count in tally.items():
         if count > 0:
             total += prices[item] * count
-            print(total)
 
 
 
@@ -117,5 +112,6 @@ print(checkout("ZZYCCXY"))
 
 # CXYZYZC
     
+
 
 
