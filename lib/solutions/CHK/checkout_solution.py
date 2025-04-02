@@ -64,7 +64,12 @@ def checkout(skus):
     skus = list(skus)
 
     total = 0 
-    tally = {'A': 0, 'B': 0, 'C': 0, 'D': 0, 'E': 0, 'F': 0}
+    tally = {
+    'A': 0, 'B': 0, 'C': 0, 'D': 0, 'E': 0, 'F': 0, 'G': 0, 'H': 0, 
+    'I': 0, 'J': 0, 'K': 0, 'L': 0, 'M': 0, 'N': 0, 'O': 0, 'P': 0,
+    'Q': 0, 'R': 0, 'S': 0, 'T': 0, 'U': 0, 'V': 0, 'W': 0, 'X': 0,
+    'Y': 0, 'Z': 0
+    }
 
     for char in skus:
         if char in tally:
@@ -88,29 +93,34 @@ def checkout(skus):
                 total +=(count //offer_count) * offer_price
                 tally[item[0]] = count % offer_count
 
+        elif len(item) == 1:
+            free_item, offer_count = value
+            count = tally[item[0]]
+            if count >= offer_count:
+                free_item = count 
 
 
 
 
-    total += (tally['A'] // 5) * 200
-    tally['A'] -= (tally['A'] // 5) * 5
-    total += (tally['A'] % 3) * 50
-    total += (tally['A'] // 3) * 130
+    # total += (tally['A'] // 5) * 200
+    # tally['A'] -= (tally['A'] // 5) * 5
+    # total += (tally['A'] % 3) * 50
+    # total += (tally['A'] // 3) * 130
 
-    if tally['B'] > 0:
-        if tally['B'] < tally['E'] // 2:
-            tally['B'] = 0
-        else:
-            tally['B'] -= (tally['E'] // 2)
+    # if tally['B'] > 0:
+    #     if tally['B'] < tally['E'] // 2:
+    #         tally['B'] = 0
+    #     else:
+    #         tally['B'] -= (tally['E'] // 2)
 
-    total += (tally['B'] % 2) * 30
-    total += (tally['B'] // 2) * 45
-    total += tally['C'] * 20
-    total += tally['D'] * 15
-    total += tally['E'] * 40
+    # total += (tally['B'] % 2) * 30
+    # total += (tally['B'] // 2) * 45
+    # total += tally['C'] * 20
+    # total += tally['D'] * 15
+    # total += tally['E'] * 40
 
-    total += (tally['F'] // 3) * 20
-    total += (tally['F'] % 3) * 10
+    # total += (tally['F'] // 3) * 20
+    # total += (tally['F'] % 3) * 10
 
     
 
@@ -120,6 +130,7 @@ def checkout(skus):
 print(checkout("FFF"))
 
     
+
 
 
 
