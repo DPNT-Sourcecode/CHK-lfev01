@@ -33,7 +33,7 @@ def checkout(skus):
     total += tally['E'] * 40
 
     total += (tally['F'] // 3) * 20
-    total += (tally['F'] * 3) * 10
+    total += (tally['F'] % 3) * 10
 
     
 
@@ -43,6 +43,7 @@ def checkout(skus):
 print(checkout("FFF"))
 
     
+
 
 
 
