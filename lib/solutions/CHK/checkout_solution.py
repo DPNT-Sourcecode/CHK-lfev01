@@ -38,6 +38,8 @@ prices ={
 }
 
 specials = {
+    '3_': (45, 3),
+
     '3R': ('Q', 3),
     '3U': ('U', 4),
     '2E': ('B', 2),
@@ -83,6 +85,11 @@ def checkout(skus):
 
     for offer, value in specials.items():
         item = offer[-1:]
+
+
+        if item =='_':
+            
+
 
         if isinstance(value[0],int):
             offer_price, offer_count = value
@@ -163,4 +170,5 @@ print(checkout("PPPPQRUVPQRUVPQRUVSU"))
 #             if count >= offer_count:
 #                 free_items = count // offer_count
 #                 tally[free_item] -= free_items
+
 
