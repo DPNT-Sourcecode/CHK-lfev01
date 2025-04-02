@@ -20,7 +20,12 @@ def checkout(skus):
     total += (tally['A'] % 3) * 50
     total += (tally['A'] // 3) * 130
 
-    tally['B'] -
+    if tally['B'] < 0:
+        if tally['B'] < tally['E'] // 2:
+            tally['B'] = 0
+        else:
+            tally['B'] -= (tally['E'] // 2)
+
     total += (tally['B'] % 2) * 30
     total += (tally['B'] // 2) * 45
     total += tally['C'] * 20
@@ -35,6 +40,7 @@ def checkout(skus):
         
 
     
+
 
 
 
