@@ -3,7 +3,7 @@
 # skus = unicode string
 def checkout(skus):
 
-    skus = skus.upper()
+
     skus = list(skus)
 
     total = 0 
@@ -12,6 +12,8 @@ def checkout(skus):
     for char in skus:
         if char in tally:
             tally[char] += 1
+        else:
+            return -1
 
 
     total += (tally['A'] % 3) * 50
@@ -27,6 +29,7 @@ def checkout(skus):
         
 
     
+
 
 
 
