@@ -117,12 +117,14 @@ def checkout(skus):
 
     num_deals = zystx // 3
     total += num_deals * 45 
-
+    num_items = num_deals * 3
 
     for char in list("ZYSTX"):
-        if tally[char] > 0 :
-            
-
+        if tally[char] > num_items :
+            tally[char] -= num_items
+        else:
+            num_items -= tally[char]
+            tally[char] = 0 
 
 
     
@@ -138,7 +140,7 @@ def checkout(skus):
     
 
 
-print(checkout("ZYST"))
+print(checkout("ZYSTZ"))
 
     
 
@@ -183,6 +185,7 @@ print(checkout("ZYST"))
 #             if count >= offer_count:
 #                 free_items = count // offer_count
 #                 tally[free_item] -= free_items
+
 
 
 
