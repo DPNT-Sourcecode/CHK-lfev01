@@ -80,8 +80,13 @@ def checkout(skus):
         item = offer[:2]
 
         if len(item) == 2:
-            
 
+            offer_price, offer_count = value
+            count = tally[item[0]]
+
+            if count > offer_count:
+                total +=(count //offer_count) * offer_price
+                tally[item[0]] = count % offer_count
 
 
 
@@ -115,6 +120,7 @@ def checkout(skus):
 print(checkout("FFF"))
 
     
+
 
 
 
