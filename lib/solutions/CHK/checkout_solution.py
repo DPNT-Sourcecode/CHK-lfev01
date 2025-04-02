@@ -113,7 +113,7 @@ def checkout(skus):
     
 
 
-print(checkout("FFF"))
+print(checkout("FFFAAA"))
 
     
 
