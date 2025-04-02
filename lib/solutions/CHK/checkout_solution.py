@@ -38,21 +38,21 @@ prices ={
 }
 
 specials = {
-    '3A': (130, 3),
     '5A': (200, 5),
+    '3A': (130, 3),
     '2B': (45, 2),
     '2E': ('B', 2),
     '2F': ('F', 2),
-    '5H': (45, 5),
     '10H': (80, 10),
+    '5H': (45, 5),
     '2K': (150, 2),
     '3N': ('M', 3),
     '5P': (200, 5),
     '3Q': (80, 3),
     '3R': ('Q', 3),
     '3U': ('U', 3),
-    '2V': (90, 2),
-    '3V': (130, 3)
+    '3V': (130, 3),
+    '2V': (90, 2)
 }
 
 
@@ -83,11 +83,11 @@ def checkout(skus):
 
         item = offer[-1:]
         offer_price, offer_count = value
-        count = tally[item[0]]
+        count = tally[item]
 
         if count > offer_count:
-            total +=(count //offer_count) * offer_price
-            tally[item[0]] = count % offer_count
+            total +=(count // offer_count) * offer_price
+            tally[item] = count % offer_count
 
         
 
@@ -149,3 +149,4 @@ print(checkout("FFF"))
 #             if count >= offer_count:
 #                 free_items = count // offer_count
 #                 tally[free_item] -= free_items
+
