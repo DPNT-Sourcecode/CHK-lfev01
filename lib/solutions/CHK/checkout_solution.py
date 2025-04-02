@@ -42,7 +42,7 @@ specials = {
     '3A': (130, 3),
     '2B': (45, 2),
     '2E': ('B', 2),
-    '2F': ('F', 2),
+    '2F': ('F', 3),
     '10H': (80, 10),
     '5H': (45, 5),
     '2K': (150, 2),
@@ -93,13 +93,15 @@ def checkout(skus):
             free_item, offer_count = value
             count = tally[item]
 
-            num_free = count // offer_count
+            print(free_item)
+            if count >= offer_count:
+                num_free = count // offer_count
 
-            if tally[free_item] > num_free :
-                tally[free_item] = 0
-            else:
-                tally[free_item] -= num_free
-        
+                if tally[free_item] > num_free :
+                    tally[free_item] = 0
+                else:
+                    tally[free_item] -= num_free
+            
 
     
     for item, count in tally.items():
@@ -114,7 +116,7 @@ def checkout(skus):
     
 
 
-print(checkout("FAAA"))
+print(checkout("FFFAAA"))
 
     
 
@@ -159,4 +161,5 @@ print(checkout("FAAA"))
 #             if count >= offer_count:
 #                 free_items = count // offer_count
 #                 tally[free_item] -= free_items
+
 
