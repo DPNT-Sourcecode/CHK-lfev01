@@ -81,26 +81,15 @@ def checkout(skus):
 
     for offer, value in specials.items():
 
-
-
         item = offer[-1:]
-      
+        offer_price, offer_count = value
+        count = tally[item[0]]
 
-        if len(item) == 2:
+        if count > offer_count:
+            total +=(count //offer_count) * offer_price
+            tally[item[0]] = count % offer_count
 
-            offer_price, offer_count = value
-            count = tally[item[0]]
-
-            if count > offer_count:
-                total +=(count //offer_count) * offer_price
-                tally[item[0]] = count % offer_count
-
-        elif len(item) == 1:
-            free_item, offer_count = value
-            count = tally[item[0]]
-            if count >= offer_count:
-                free_items = count // offer_count
-                tally[free_item] -= free_items
+        
 
     
     for item, count in tally.items():
@@ -115,7 +104,7 @@ def checkout(skus):
     
 
 
-print(checkout("FF"))
+print(checkout("FFF"))
 
     
 
@@ -142,3 +131,21 @@ print(checkout("FF"))
 
     # total += (tally['F'] // 3) * 20
     # total += (tally['F'] % 3) * 10
+
+
+
+# if len(item) == 2:
+
+#             offer_price, offer_count = value
+#             count = tally[item[0]]
+
+#             if count > offer_count:
+#                 total +=(count //offer_count) * offer_price
+#                 tally[item[0]] = count % offer_count
+
+#         elif len(item) == 1:
+#             free_item, offer_count = value
+#             count = tally[item[0]]
+#             if count >= offer_count:
+#                 free_items = count // offer_count
+#                 tally[free_item] -= free_items
