@@ -103,7 +103,6 @@ def checkout(skus):
             free_item, offer_count = value
             count = tally[item]
 
-            print(free_item)
             if count >= offer_count:
                 num_free = count // offer_count
 
@@ -140,7 +139,7 @@ def checkout(skus):
     
 
 
-# print(checkout("AAAAAPPPPPUUUUEEBRRRQAAAHHHHHHHHHHKKVVVBBNNNMFFFQQQVVHHHHHSTX"))
+print(checkout("AAAAAPPPPPUUUUEEBRRRQAAAHHHHHHHHHHKKVVVBBNNNMFFFQQQVVHHHHHSTX"))
 
     
 
@@ -185,5 +184,6 @@ def checkout(skus):
 #             if count >= offer_count:
 #                 free_items = count // offer_count
 #                 tally[free_item] -= free_items
+
 
 
