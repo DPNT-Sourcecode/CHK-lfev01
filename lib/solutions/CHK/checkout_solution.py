@@ -81,8 +81,9 @@ def checkout(skus):
 
     for offer, value in specials.items():
 
-        item = offer[:2]
+        item = offer
         print(item)
+        print(value)
 
         if len(item) == 2:
 
@@ -136,6 +137,7 @@ def checkout(skus):
 print(checkout("FFF"))
 
     
+
 
 
 
