@@ -108,10 +108,10 @@ def checkout(skus):
     
 
 
-print(checkout("ZZYCCXY"))
+print(checkout("ZZYCCXYABHDOWNCEOECEOCNE"))
 
-# CXYZYZC
     
+
 
 
 
