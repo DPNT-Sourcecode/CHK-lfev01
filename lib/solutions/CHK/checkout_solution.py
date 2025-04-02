@@ -7,7 +7,7 @@ def checkout(skus):
     skus = list(skus)
 
     total = 0 
-    tally = {'A': 0, 'B': 0, 'C': 0, 'D': 0, 'E': 0}
+    tally = {'A': 0, 'B': 0, 'C': 0, 'D': 0, 'E': 0, 'F': 0}
 
     for char in skus:
         if char in tally:
@@ -32,6 +32,8 @@ def checkout(skus):
     total += tally['D'] * 15
     total += tally['E'] * 40
 
+    total += (tally['F'] // 3) 
+
     
 
     return total 
@@ -40,4 +42,5 @@ def checkout(skus):
 print(checkout("AAAAA"))
 
     
+
 
