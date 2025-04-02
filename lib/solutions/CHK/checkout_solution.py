@@ -38,19 +38,20 @@ prices ={
 }
 
 specials = {
+    '3R': ('Q', 3),
+    '3U': ('U', 4),
+    '2E': ('B', 2),
+    '3N': ('M', 3),
+    '2F': ('F', 3),
+
     '5A': (200, 5),
     '3A': (130, 3),
-    '2E': ('B', 2),
     '2B': (45, 2),
-    '2F': ('F', 3),
     '10H': (80, 10),
     '5H': (45, 5),
     '2K': (150, 2),
-    '3N': ('M', 3),
     '5P': (200, 5),
     '3Q': (80, 3),
-    '3R': ('Q', 3),
-    '3U': ('U', 4),
     '3V': (130, 3),
     '2V': (90, 2)
 }
@@ -116,7 +117,7 @@ def checkout(skus):
     
 
 
-print(checkout("BEBEEE"))
+print(checkout("PPPPQRUVPQRUVPQRUVSU"))
 
     
 
@@ -161,6 +162,7 @@ print(checkout("BEBEEE"))
 #             if count >= offer_count:
 #                 free_items = count // offer_count
 #                 tally[free_item] -= free_items
+
 
 
 
