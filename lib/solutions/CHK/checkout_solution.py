@@ -93,7 +93,6 @@ def checkout(skus):
         item = offer[-1:]
 
 
-
         if isinstance(value[0],int):
             offer_price, offer_count = value
             count = tally[item]
@@ -117,10 +116,12 @@ def checkout(skus):
 
     zystx = tally['S'] + tally['T'] + tally['X'] + tally['Y'] + tally['Z'] 
 
-    if zystx >= 3:
+    while zystx >= 3:
         for char in list(zystx):
-            if tally[char] > 0:
-
+            if tally[char] <= zystx :
+                zystx -= tally[char]
+                tally[char] = 0
+            
 
 
     
@@ -181,6 +182,7 @@ print(checkout("PPPPQRUVPQRUVPQRUVSU"))
 #             if count >= offer_count:
 #                 free_items = count // offer_count
 #                 tally[free_item] -= free_items
+
 
 
 
