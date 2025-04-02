@@ -81,7 +81,7 @@ def checkout(skus):
 
     for offer, value in specials.items():
         item = offer[-1:]
-        if value[0] is int:
+        if isinstance(value[0],int):
             offer_price, offer_count = value
             count = tally[item]
 
@@ -158,6 +158,7 @@ print(checkout("FFF"))
 #             if count >= offer_count:
 #                 free_items = count // offer_count
 #                 tally[free_item] -= free_items
+
 
 
 
