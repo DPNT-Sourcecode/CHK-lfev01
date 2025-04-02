@@ -16,7 +16,7 @@ def checkout(skus):
             return -1
 
     total += (tally['A'] // 5) * 200
-    tally['A'] -= tally['A'] // 5
+    tally['A'] -= (tally['A'] // 5) * 5
     total += (tally['A'] % 3) * 50
     total += (tally['A'] // 3) * 130
 
@@ -37,7 +37,9 @@ def checkout(skus):
     return total 
 
 
+print(checkout("AAAAA"))
 
     
+
 
 
