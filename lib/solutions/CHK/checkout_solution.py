@@ -119,7 +119,7 @@ def checkout(skus):
     total += num_deals * 45 
     num_items = num_deals * 3
 
-    for char in list("ZYSTX"):
+    for char in list("ZYSTX"):  # in order of most expensive to cheapest to favour customer
         if tally[char] > num_items :
             tally[char] -= num_items
         else:
@@ -140,7 +140,7 @@ def checkout(skus):
     
 
 
-print(checkout("ZYSTZ"))
+print(checkout("AAAAAPPPPPUUUUEEBRRRQAAAHHHHHHHHHHKKVVVBBNNNMFFFQQQVVHHHHHSTX"))
 
     
 
