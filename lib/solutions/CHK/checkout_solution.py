@@ -158,8 +158,3 @@ print(checkout("FFF"))
 #             if count >= offer_count:
 #                 free_items = count // offer_count
 #                 tally[free_item] -= free_items
-
-
-
-
-
