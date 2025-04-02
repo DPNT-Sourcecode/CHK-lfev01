@@ -38,7 +38,6 @@ prices ={
 }
 
 specials = {
-    '3_': (45, 3),
 
     '3R': ('Q', 3),
     '3U': ('U', 4),
@@ -116,8 +115,14 @@ def checkout(skus):
 
     zystx = tally['S'] + tally['T'] + tally['X'] + tally['Y'] + tally['Z'] 
 
+    num_deals = zystx // 3
+    total += num_deals * 45 
+
+
+    
+
     while zystx >= 3:
-        for char in list(zystx):
+        for char in list("ZYSTX"):
             if tally[char] <= zystx :
                 zystx -= tally[char]
                 tally[char] = 0
@@ -137,7 +142,7 @@ def checkout(skus):
     
 
 
-print(checkout("PPPPQRUVPQRUVPQRUVSU"))
+print(checkout("ZYS"))
 
     
 
@@ -182,6 +187,7 @@ print(checkout("PPPPQRUVPQRUVPQRUVSU"))
 #             if count >= offer_count:
 #                 free_items = count // offer_count
 #                 tally[free_item] -= free_items
+
 
 
 
