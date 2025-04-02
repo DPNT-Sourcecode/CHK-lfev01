@@ -72,6 +72,21 @@ def checkout(skus):
         else:
             return -1
 
+
+
+
+    for offer, value in specials.items():
+
+        item = offer[:2]
+
+        if len(item) == 2:
+            
+
+
+
+
+
+
     total += (tally['A'] // 5) * 200
     tally['A'] -= (tally['A'] // 5) * 5
     total += (tally['A'] % 3) * 50
@@ -100,6 +115,7 @@ def checkout(skus):
 print(checkout("FFF"))
 
     
+
 
 
 
