@@ -1,13 +1,16 @@
-from collections import Counter
 
 # noinspection PyUnusedLocal
 # skus = unicode string
 def checkout(skus):
-    tally = [0, 0, 0, 0]
-    counter = Counter(skus)
+    total = 0 
+    tally = {'A': 0, 'B':0, 'C': 0, 'D': 0}
 
-    tally = [counter.get(chr(i), 0) for i in range(ord)]
+    for char in 
+    
+    
+        
 
     
+
 
 
