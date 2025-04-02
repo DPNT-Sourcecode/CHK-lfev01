@@ -7,7 +7,7 @@ def checkout(skus):
     skus = list(skus)
 
     total = 0 
-    tally = {'A': 0, 'B':0, 'C': 0, 'D': 0, 'E': 0}
+    tally = {'A': 0, 'B': 0, 'C': 0, 'D': 0, 'E': 0}
 
     for char in skus:
         if char in tally:
@@ -20,7 +20,7 @@ def checkout(skus):
     total += (tally['A'] % 3) * 50
     total += (tally['A'] // 3) * 130
 
-    if tally['B'] < 0:
+    if tally['B'] > 0:
         if tally['B'] < tally['E'] // 2:
             tally['B'] = 0
         else:
@@ -40,11 +40,4 @@ def checkout(skus):
         
 
     
-
-
-
-
-
-
-
 
