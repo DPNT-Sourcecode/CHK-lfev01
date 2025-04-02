@@ -1,6 +1,6 @@
 # noinspection PyShadowingBuiltins,PyUnusedLocal
 def compute(x, y):
-    if x <100 & x > 0:
-        if 
+    if x in range(0,100) & y in range(0, 100):
         return x + y
+
 
