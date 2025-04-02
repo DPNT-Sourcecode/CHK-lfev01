@@ -15,6 +15,11 @@ specials = {
     '2F': ('F', 3),
 
 
+    '3Z': (45, 3),
+    '3Y': (45, 3),
+    '3S': (45, 3),
+    '3T': (45, 3),
+    '3X': (45, 3),
     '5A': (200, 5),
     '3A': (130, 3),
     '2B': (45, 2),
@@ -103,8 +108,9 @@ def checkout(skus):
     
 
 
-print(checkout("ZT"))
+print(checkout("CXYZYZC"))
 
     
+
 
 
