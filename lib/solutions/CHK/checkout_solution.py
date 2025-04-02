@@ -9,22 +9,18 @@ def checkout(skus):
         if char in tally:
             tally[char] += 1
 
-
-
-    tally += (tally['A'] % 3) * 50
-    tally += (tally['A'] // 3) * 130
-    tally += (tally['A'] % 3) * 50
-    tally += (tally['A'] // 3) * 130
+    total += (tally['A'] % 3) * 50
+    total += (tally['A'] // 2) * 130
+    total += (tally['B'] % 2) * 30
+    total += (tally['B'] // 3) * 45
     total += tally['C'] * 20
     total += tally['D'] * 15
 
+    return total 
 
 
     
         
 
     
-
-
-
 
