@@ -15,11 +15,6 @@ specials = {
     '2F': ('F', 3),
 
 
-    '3Z': (45, 3),
-    '3Y': (45, 3),
-    '3S': (45, 3),
-    '3T': (45, 3),
-    '3X': (45, 3),
     '5A': (200, 5),
     '3A': (130, 3),
     '2B': (45, 2),
@@ -108,48 +103,8 @@ def checkout(skus):
     
 
 
-print(checkout("ZTYSX"))
+print(checkout("ZT"))
 
     
 
 
-
-
-
-# total += (tally['A'] // 5) * 200
-    # tally['A'] -= (tally['A'] // 5) * 5
-    # total += (tally['A'] % 3) * 50
-    # total += (tally['A'] // 3) * 130
-
-    # if tally['B'] > 0:
-    #     if tally['B'] < tally['E'] // 2:
-    #         tally['B'] = 0
-    #     else:
-    #         tally['B'] -= (tally['E'] // 2)
-
-    # total += (tally['B'] % 2) * 30
-    # total += (tally['B'] // 2) * 45
-    # total += tally['C'] * 20
-    # total += tally['D'] * 15
-    # total += tally['E'] * 40
-
-    # total += (tally['F'] // 3) * 20
-    # total += (tally['F'] % 3) * 10
-
-
-
-# if len(item) == 2:
-
-#             offer_price, offer_count = value
-#             count = tally[item[0]]
-
-#             if count > offer_count:
-#                 total +=(count //offer_count) * offer_price
-#                 tally[item[0]] = count % offer_count
-
-#         elif len(item) == 1:
-#             free_item, offer_count = value
-#             count = tally[item[0]]
-#             if count >= offer_count:
-#                 free_items = count // offer_count
-#                 tally[free_item] -= free_items
