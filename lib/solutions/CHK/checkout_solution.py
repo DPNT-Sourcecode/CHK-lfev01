@@ -41,5 +41,3 @@ print(checkout("AAAAA"))
 
     
 
-
-
