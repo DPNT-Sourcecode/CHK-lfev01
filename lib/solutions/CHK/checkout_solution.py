@@ -113,5 +113,3 @@ print(checkout("ZZYCCXYABHDOWNCEOECEOCNE"))
     
 
 
-
-
