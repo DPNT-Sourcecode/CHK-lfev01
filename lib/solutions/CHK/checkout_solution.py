@@ -1,53 +1,26 @@
-
-prices ={
+prices = {
     'A': 50, 'B': 30, 'C': 20, 'D': 15, 'E': 40, 'F': 10, 'G': 20, 'H': 10, 
     'I': 35, 'J': 60, 'K': 70, 'L': 90, 'M': 15, 'N': 40, 'O': 10, 'P': 50,
-    'Q': 30, 'R': 50, 'S':20, 'T': 20, 'U': 40, 'V': 50, 'W': 20, 'X': 17,
+    'Q': 30, 'R': 50, 'S': 20, 'T': 20, 'U': 40, 'V': 50, 'W': 20, 'X': 17,
     'Y': 20, 'Z': 21
 }
 
 specials = {
-
-    '3R': ('Q', 3),
-    '3U': ('U', 4),
-    '2E': ('B', 2),
-    '3N': ('M', 3),
-    '2F': ('F', 3),
-
-
-    '3Z': (45, 3),
-    '3Y': (45, 3),
-    '3S': (45, 3),
-    '3T': (45, 3),
-    '3X': (45, 3),
-    '5A': (200, 5),
-    '3A': (130, 3),
-    '2B': (45, 2),
-    '10H': (80, 10),
-    '5H': (45, 5),
-    '2K': (120, 2),
-    '5P': (200, 5),
-    '3Q': (80, 3),
-    '3V': (130, 3),
-    '2V': (90, 2),
-
+    '3R': ('Q', 3), '3U': ('U', 4), '2E': ('B', 2), '3N': ('M', 3), '2F': ('F', 3),
+    '3Z': (45, 3), '3Y': (45, 3), '3S': (45, 3), '3T': (45, 3), '3X': (45, 3),
+    '5A': (200, 5), '3A': (130, 3), '2B': (45, 2), '10H': (80, 10), '5H': (45, 5),
+    '2K': (120, 2), '5P': (200, 5), '3Q': (80, 3), '3V': (130, 3), '2V': (90, 2),
 }
 
+group_discount_items = ['Z', 'Y', 'S', 'T', 'X']
+group_discount_price = 45
+group_discount_count = 3
 
-# noinspection PyUnusedLocal
-# skus = unicode string
 def checkout(skus):
+    if not isinstance(skus, str):
+        return -1
 
-
-    skus = list(skus)
-
-    total = 0 
-    tally = {
-    'A': 0, 'B': 0, 'C': 0, 'D': 0, 'E': 0, 'F': 0, 'G': 0, 'H': 0, 
-    'I': 0, 'J': 0, 'K': 0, 'L': 0, 'M': 0, 'N': 0, 'O': 0, 'P': 0,
-    'Q': 0, 'R': 0, 'S': 0, 'T': 0, 'U': 0, 'V': 0, 'W': 0, 'X': 0,
-    'Y': 0, 'Z': 0
-    }
+    tally = dict.fromkeys(prices, 0)
 
     for char in skus:
         if char in tally:
@@ -55,61 +28,50 @@ def checkout(skus):
         else:
             return -1
 
+    total = 0
 
+    # Handle free item offers (e.g., buy 2E get B free)
     for offer, value in specials.items():
-        item = offer[-1:]
+        item = offer[-1]
+        if isinstance(value[0], str):  # free item offer
+            free_item, threshold = value
+            free_qty = tally[item] // threshold
+            tally[free_item] = max(0, tally[free_item] - free_qty)
 
+    # Handle group discount (S, T, X, Y, Z - any 3 for 45)
+    group_total = sum(tally[i] for i in group_discount_items)
+    num_groups = group_total // group_discount_count
+    total += num_groups * group_discount_price
 
-        if isinstance(value[0],int):
-            offer_price, offer_count = value
-            count = tally[item]
-
-            if count >= offer_count:
-                total += (count // offer_count) * offer_price
-                tally[item] = count % offer_count
+    remaining = num_groups * group_discount_count
+    for item in sorted(group_discount_items, key=lambda x: prices[x], reverse=True):
+        if tally[item] >= remaining:
+            tally[item] -= remaining
+            break
         else:
-            free_item, offer_count = value
+            remaining -= tally[item]
+            tally[item] = 0
+
+    # Handle multi-buy discounts (fixed-price offers)
+    for offer, value in specials.items():
+        item = offer[-1]
+        if isinstance(value[0], int):  # fixed-price deal
+            price, quantity = value
             count = tally[item]
+            offer_count = count // quantity
+            total += offer_count * price
+            tally[item] = count % quantity
 
-            if count >= offer_count:
-                num_free = count // offer_count
-
-                if tally[free_item] < num_free :
-                    tally[free_item] = 0
-                else:
-                    tally[free_item] -= num_free
-            
-
-    zystx = tally['S'] + tally['T'] + tally['X'] + tally['Y'] + tally['Z'] 
-
-    num_deals = zystx // 3
-    total += num_deals * 45 
-    num_items = num_deals * 3
-
-    for char in list("ZYSTX"):  # in order of most expensive to cheapest to favour customer
-        if tally[char] > num_items :
-            tally[char] -= num_items
-            num_items = 0
-        else:
-            num_items -= tally[char]
-            tally[char] = 0
-
-
-    
+    # Add remaining items at unit price
     for item, count in tally.items():
-        if count > 0:
-            total += prices[item] * count
+        total += prices[item] * count
 
+    return total
 
-
-
-    return total 
-
-    
-
-
+# Example usage
 print(checkout("ZZYCCXYABHDOWNCEOECEOCNE"))
 
     
+
 
 
